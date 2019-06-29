@@ -14,6 +14,9 @@ const authRouter = require('./authorization/router')
 //import Playlists router 
 const playlistRouter = require ('./playlist/router')
 
+//import userRouter
+const userRouter = require ('./user/router')
+
 //declare const app
 const app = express()
 
@@ -27,3 +30,4 @@ app.listen(port, () => {
 app.use(jsonParser)
 app.use(playlistRouter)
 app.use(authRouter)
+app.use(userRouter)
