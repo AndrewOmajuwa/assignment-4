@@ -7,6 +7,14 @@ const Song = require('./model')
 //instantiate router
 const router = new Router()
 
+//define endpoint to post song to playlist
+
+router.post('/playlists/:id/song', (req, res, next) => {
+    Song.create(req.body)
+    .then(song => res.status(201).json(song))
+    .catch(error => next(error))
+})
+
 
 
 module.exports = router

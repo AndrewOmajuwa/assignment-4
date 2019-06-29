@@ -1,8 +1,11 @@
-//import sequelize
+//import sequelize and db
 const sequelize = require("sequelize");
 const db = require("../db");
 
-//declare songconst Team = require('../team/model')
+//import playlist model for relational purposes
+const Playlist = require('../playlist/model')
+
+//declare song model using sequelize
 
 const Song = db.define(
   "song",
@@ -12,19 +15,18 @@ const Song = db.define(
       field: "song_title"
     },
     artist: {
-      type: sequelize.INTEGER,
+      type: sequelize.STRING,
       field: "artist_name"
     },
     album: {
         type: sequelize.STRING,
         field: 'album_name'
-    },
-    playlist: {
-        type: sequelize.STRING,
-        field: 'playlist_name'
     }
   },
   { tableName: "songs" }
 );
+
+//specify that songs belong to a playlist
+Song.belongsTo(Playlist)
 
 module.exports = Song

@@ -19,7 +19,7 @@ router.get('/playlists', (req, res, next) => {
 //register endpoint to create a playlist
 router.post('/playlists', (req, res, next) => {
     Playlist.create(req.body)
-    .then(playlist => res.status(200)
+    .then(playlist => res.status(201)
     .send(playlist))
     .catch(err => next(err)) 
     })

@@ -17,6 +17,9 @@ const playlistRouter = require ('./playlist/router')
 //import userRouter
 const userRouter = require ('./user/router')
 
+//import song router 
+const songRouter = require('./song/router')
+
 //declare const app
 const app = express()
 
@@ -31,3 +34,4 @@ app.use(jsonParser)
 app.use(playlistRouter)
 app.use(authRouter)
 app.use(userRouter)
+app.use(songRouter)
